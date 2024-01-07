@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">finalproject</string>
+    <string name="back_button">Kembali</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="next">Lanjut</string>
+    <string name="pesan_lagi">Pesan Lagi</string>
+
+    <string name="non">Non Coffee</string>
+    <string name="coklat">Chocolate</string>
+    <string name="red">Red Velvet</string>
+    <string name="taro">Taro</string>
+    <string name="matcha">Matcha</string>
+    <string name="milk">Milk</string>
+
+    <string name="cof">Coffe</string>
+    <string name="latte">Coffe Latte</string>
+    <string name="cap">Cappucino</string>
+    <string name="moc">Moccachino</string>
+    <string name="eks">Ekspresso</string>
+    <string name="ame">Americano</string>
+    <string name="car">Caramel</string>
+    <string name="aff">Affogato</string>
+    <string name="haz">Hazelnut</string>
+    <string name="van">Vanilla</string>
+    <string name="bs">Brown Sugar Coffe</string>
+
+    <string name="cin">Cinnamon</string>
+    <string name="cancel">Batal</string>
+    <string name="order_summary"> Ringkasan Order</string>
+    <string name="send">Send Order to Another App</string>
+    <string name="quantity">Jumlah order</string>
+    <string name="flavors">Rasa</string>
+    <string name="subtotal_price">Subtotal: %s</string>
+    <string name="total_price">Total %s</string>
+    <string name="btn_next">button</string>
+    <string name="btn_selanjutnya">Selanjutnya</string>
+
+</resources>
