@@ -35,27 +35,27 @@ fun HalamanHome (
         modifier = Modifier,
         verticalArrangement = Arrangement.SpaceBetween
     ){
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+        ) {
+            Image(
+                painter = image,
+                contentDescription = null,
+                contentScale = ContentScale.Inside,
+                modifier = Modifier
+                    .size(width = 200.dp, height = 300.dp) // Adjust the size as needed
+                    .align(Alignment.CenterHorizontally)
+            )
+            Text(
+                text = "WELCOME!",
+                color = Color.DarkGray,
+                fontSize = 50.sp,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-            ) {
-                Image(
-                    painter = image,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .size(width = 200.dp, height = 300.dp) // Adjust the size as needed
-                        .align(Alignment.CenterHorizontally)
-                )
-                Text(
-                    text = "WELCOME!",
-                    color = Color.DarkGray,
-                    fontSize = 50.sp,
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
-            }
+            )
+        }
         Row(
             modifier = Modifier
                 .fillMaxWidth()

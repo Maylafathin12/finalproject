@@ -34,5 +34,6 @@
     <string name="total_price">Total %s</string>
     <string name="btn_next">button</string>
     <string name="btn_selanjutnya">Selanjutnya</string>
+    <string name="title_activity_halaman_detail">HalamanDetail</string>
 
 </resources>

@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedButton
@@ -22,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -30,60 +33,65 @@ import androidx.compose.ui.unit.sp
 fun HalamanPembeli(
     onSubmitButtonClick: (MutableList<String>) -> Unit,
     onCancelButtonClick: () -> Unit,
-){
-    var namaTxt by rememberSaveable {
-        mutableStateOf("")
-    }
-    var alamatTxt by rememberSaveable {
-        mutableStateOf("")
-    }
-    var teleponTxt by rememberSaveable {
-        mutableStateOf("")
-    }
+) {
+    var namaTxt by rememberSaveable { mutableStateOf("") }
+    var alamatTxt by rememberSaveable { mutableStateOf("") }
+    var teleponTxt by rememberSaveable { mutableStateOf("") }
     var ListDataTxt: MutableList<String> = mutableListOf(namaTxt, alamatTxt, teleponTxt)
 
-    Column (
+    Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .padding(16.dp)
             .fillMaxSize()
-    ){
+            .padding(16.dp)
+    ) {
         Text(
-            text = "Data Pelanggan", fontWeight = FontWeight.Bold, fontSize = 18.sp,
-            modifier = Modifier.padding(bottom = 16.dp))
-        OutlinedTextField(value = namaTxt, onValueChange = {
-            namaTxt = it
-        }, label = {
-            Text(text = "Nama")
-        })
-        OutlinedTextField(value = alamatTxt, onValueChange = {
-            alamatTxt = it
-        }, label = {
-            Text(text = "Alamat")
-        })
-        OutlinedTextField(value = teleponTxt, onValueChange = {
-            teleponTxt = it
-        }, label = {
-            Text(text = "Telepon")
-        })
+            text = "Data Pelanggan",
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        OutlinedTextField(value = namaTxt,
+            onValueChange = { namaTxt = it },
+            label = { Text(text = "Nama") })
+
+        OutlinedTextField(value = alamatTxt,
+            onValueChange = { alamatTxt = it },
+            label = { Text(text = "Alamat") })
+
+        OutlinedTextField(value = teleponTxt,
+            onValueChange = { teleponTxt = it },
+            label = { Text(text = "Telepon") },
+            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+        )
+
         Spacer(modifier = Modifier.padding(16.dp))
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.padding_medium))
-                .weight(1f, false),
-            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            OutlinedButton(onClick = onCancelButtonClick
+                .weight(1f, false), horizontalArrangement = Arrangement.Center
+        ) {
+            OutlinedButton(
+                onClick = onCancelButtonClick, modifier = Modifier.weight(1f)
             ) {
                 Text(stringResource(id = R.string.cancel))
             }
-            Button(onClick = { onSubmitButtonClick(ListDataTxt) }) {
-                Text(stringResource(id = R.string.btn_selanjutnya));
+
+            Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_medium)))
+
+            Button(
+                onClick = { onSubmitButtonClick(ListDataTxt) },
+                enabled = namaTxt.isNotEmpty() && alamatTxt.isNotEmpty() && teleponTxt.isNotEmpty(),
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(stringResource(id = R.string.btn_selanjutnya))
             }
         }
     }
 }
+
 
